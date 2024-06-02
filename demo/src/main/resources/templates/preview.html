@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Предварительный просмотр документа</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-4">
+    <h2 class="mb-3">Предварительный просмотр документа</h2>
+    <div class="mb-3">
+        <a href="/documents" class="btn btn-primary">Назад к списку документов</a>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${document.documentName}">Название документа</h5>
+                    <h6 class="card-subtitle mb-2 text-muted" th:text="'Автор: ' + ${document.author}">Автор</h6>
+                    <p class="card-text" th:text="'Описание: ' + ${document.description}">Описание</p>
+                    <p class="card-text" th:text="'Жанр: ' + ${document.genre}">Жанр</p>
+                    <p class="card-text" th:text="'Год выпуска: ' + ${document.releaseYear}">Год выпуска</p>
+                    <!-- Элемент для предварительного просмотра -->
+                    <iframe th:src="@{'/preview/file/' + ${document.id}}" style="width: 100%; height: 500px;" frameborder="0"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</body>
+</html>
